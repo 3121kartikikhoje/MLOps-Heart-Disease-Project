@@ -1,0 +1,1 @@
+Create and save your EDA notebook here. Include dataset shape, missing values, class balance, distributions, correlations, and written interpretations. Figures can be generated using `python -m src.eda`.

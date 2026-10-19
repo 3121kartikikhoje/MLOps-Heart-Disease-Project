@@ -1,0 +1,41 @@
+name: MLOps CI
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test-and-train:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Lint
+        run: ruff check src tests --output-format=github
+      - name: Unit tests
+        run: pytest -q
+      - name: Download data
+        run: python -m src.data
+      - name: EDA
+        run: python -m src.eda
+      - name: Train and track experiments
+        run: python -m src.train
+      - name: Upload model and report artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mlops-run-artifacts
+          path: |
+            artifacts/
+            reports/figures/
+          if-no-files-found: warn
