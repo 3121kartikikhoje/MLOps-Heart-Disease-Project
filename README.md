@@ -142,5 +142,4 @@ Save genuine screenshots under `reports/screenshots/`:
 5. Docker build/run and API docs/prediction.
 6. Kubernetes pod/deployment/service and API verification.
 7. Monitoring metrics/logs and dashboard if configured.
-
-Complete `reports/REPORT_TEMPLATE.md` into a 10-page DOCX or PDF. Include actual results, figures with interpretations, architecture diagram, setup steps, repository URL, deployment URL or local access instructions, and a short walkthrough video. Do not fabricate results or screenshots.
+8. `reports/REPORT_TEMPLATE.md` into a 10-page DOCX or PDF. Include actual results, figures with interpretations, architecture diagram, setup steps, repository URL, deployment URL or local access instructions, and a short walkthrough video. Do not fabricate results or screenshots.
